@@ -1,0 +1,491 @@
+{
+ "title": "Humanity's Sixth Sense",
+ "subtitle": "Benchmarking Intuitive Visual Reasoning in Multimodal Models",
+ "hf_repo": "ScaleAI/HSS",
+ "hf_media_base": "https://huggingface.co/datasets/ScaleAI/HSS/resolve/main/",
+ "judge": "Claude Opus 5",
+ "abstract": "Humans perceive far more in a scene than what is explicitly depicted: a single glance captures past causes and future trajectories; a quick peek determines if a vehicle can fit between two parked cars; a few seconds of video reveals who holds authority in a room; and a fleeting clip highlights subtle abstract patterns like unwritten rules or hidden labels. This capacity reflects a form of humanity's sixth sense: an intuitive reasoning mechanism that recovers implicit information beyond raw sensory perception. Crucially, this rapid, zero-shot visual intuition underpins everyday navigation and social interaction, making it a vital capability for Multimodal Large Language Models (MLLMs) deployed alongside people. Existing visual benchmarks, however, target either deliberate expert-level analysis in academic and mathematical domains or low-level perception, leaving the intuitive reasoning that people perform largely untested. To bridge this gap, we introduce Humanity's Sixth Sense (HSS), a benchmark for intuitive visual reasoning. HSS spans diverse image and video inputs, organizes items under a structured taxonomy, and pairs each with human-written prompts probing the implicit temporal, spatial, social, and abstract structure that people infer at a glance. Frontier MLLMs fall short of human performance: participants reach 93.1% accuracy, while the strongest model, GPT-6-astra, reaches only 53.6% even at maximum reasoning effort. Despite excelling in many complex tasks that require advanced perception and knowledge, current models still struggle significantly on these visual tasks that are intuitive for humans. We further explore agentic setup that apply dynamic visual manipulation to HSS, which narrows but does not close the gap. HSS establishes intuitive visual reasoning as a measurable axis and directs attention to a capability that scaling on current benchmarks has so far left behind.",
+ "authors": "Xingang Guo¹\\*, Jing Gu²\\*, Brian Jang¹\\*, Renxiong Wang¹, Utkarsh Tyagi¹, Daniel Quigley¹, Steven Li¹, David Yan², Daniel Yue Zhang¹, Darvin Yi¹, Forrest Huang², HiJae Kim¹, Tianyi Zhang², Jared Lichtarge², Jihua Huang², Le Xue², Manan Tomar², Qiuyi Richard Zhang², Ruofei Yu², Seth Neel², Yaning Hu², Marcella Valentine², Xinzhe Jiang², Daniel Evans¹, Chenguang Wang¹·³, Dustin Tran², Tong Zhao¹, Yinfei Yang², Yunzhong He¹\n\n¹Scale AI, ²Elorian, ³University of California, Santa Cruz · \\*Equal contribution",
+ "n_tasks": 522,
+ "models": [
+  {
+   "key": "human",
+   "name": "Human",
+   "kind": "human",
+   "company": "Human",
+   "score": 93.1,
+   "effort": ""
+  },
+  {
+   "key": "gpt-6-astra@max",
+   "name": "GPT-6-Astra",
+   "kind": "raw",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 53.6,
+   "ci": 4.1
+  },
+  {
+   "key": "gpt-6.1-sol@max",
+   "name": "GPT-6.1-Sol",
+   "kind": "raw",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 46.6,
+   "ci": 3.8
+  },
+  {
+   "key": "claude-opus-5.5@xhigh",
+   "name": "Claude-Opus-5.5",
+   "kind": "raw",
+   "effort": "xhigh",
+   "company": "Anthropic",
+   "score": 44.6,
+   "ci": 3.8
+  },
+  {
+   "key": "gemini-3.8-flash@high",
+   "name": "Gemini-3.8-Flash",
+   "kind": "raw",
+   "effort": "high",
+   "company": "Google",
+   "score": 41.6,
+   "ci": 3.7
+  },
+  {
+   "key": "claude-fable-5.1@xhigh",
+   "name": "Claude-Fable-5.1",
+   "kind": "raw",
+   "effort": "xhigh",
+   "company": "Anthropic",
+   "score": 40.8,
+   "ci": 3.6
+  },
+  {
+   "key": "gemini-3.7-flash@high",
+   "name": "Gemini-3.7-Flash",
+   "kind": "raw",
+   "effort": "high",
+   "company": "Google",
+   "score": 39.8,
+   "ci": 3.7
+  },
+  {
+   "key": "muse-spark-1.3@max",
+   "name": "Muse Spark 1.3",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Meta",
+   "score": 37.4,
+   "ci": 3.5
+  },
+  {
+   "key": "claude-fable-5@max",
+   "name": "Claude-Fable-5",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Anthropic",
+   "score": 34.5,
+   "ci": 3.7
+  },
+  {
+   "key": "qwen3.8-max@max",
+   "name": "Qwen3.8-Max",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Alibaba",
+   "score": 33.0,
+   "ci": 3.6
+  },
+  {
+   "key": "gemini-3.5-flash@high",
+   "name": "Gemini-3.5-Flash",
+   "kind": "raw",
+   "effort": "high",
+   "company": "Google",
+   "score": 32.6,
+   "ci": 3.4
+  },
+  {
+   "key": "gemini-3.6-flash@high",
+   "name": "Gemini-3.6-Flash",
+   "kind": "raw",
+   "effort": "high",
+   "company": "Google",
+   "score": 31.9,
+   "ci": 3.4
+  },
+  {
+   "key": "gpt-6-sol@max",
+   "name": "GPT-6-Sol",
+   "kind": "raw",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 31.2,
+   "ci": 3.4
+  },
+  {
+   "key": "qwen3.8-flash@max",
+   "name": "Qwen3.8-Flash",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Alibaba",
+   "score": 30.9,
+   "ci": 3.3
+  },
+  {
+   "key": "claude-opus-5@max",
+   "name": "Claude-Opus-5",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Anthropic",
+   "score": 30.5,
+   "ci": 3.5
+  },
+  {
+   "key": "gpt-5.6-sol@max",
+   "name": "GPT-5.6-Sol",
+   "kind": "raw",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 30.0,
+   "ci": 3.3
+  },
+  {
+   "key": "glm-5.3-flash@max",
+   "name": "GLM-5.3-Flash",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Zhipu",
+   "score": 26.8,
+   "ci": 3.0
+  },
+  {
+   "key": "kimi-k3@max-moonshot",
+   "name": "Kimi-K3",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Moonshot",
+   "score": 25.5,
+   "ci": 3.1
+  },
+  {
+   "key": "mimo-v2.6-flash@high",
+   "name": "MiMo-v2.6-Flash",
+   "kind": "raw",
+   "effort": "high",
+   "company": "Xiaomi",
+   "score": 25.4,
+   "ci": 2.9
+  },
+  {
+   "key": "mimo-v2.6-pro@high",
+   "name": "MiMo-v2.6-Pro",
+   "kind": "raw",
+   "effort": "high",
+   "company": "Xiaomi",
+   "score": 25.2,
+   "ci": 2.9
+  },
+  {
+   "key": "claude-sonnet-5@max",
+   "name": "Claude-Sonnet-5",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Anthropic",
+   "score": 24.8,
+   "ci": 3.2
+  },
+  {
+   "key": "muse-spark-1.2@xhigh",
+   "name": "Muse Spark 1.2",
+   "kind": "raw",
+   "effort": "xhigh",
+   "company": "Meta",
+   "score": 24.5,
+   "ci": 3.1
+  },
+  {
+   "key": "claude-opus-4-8@max",
+   "name": "Claude-Opus-4.8",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Anthropic",
+   "score": 23.5,
+   "ci": 3.2
+  },
+  {
+   "key": "gpt-5.6-terra@max",
+   "name": "GPT-5.6-Terra",
+   "kind": "raw",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 22.7,
+   "ci": 3.2
+  },
+  {
+   "key": "gpt-5.6-luna@max",
+   "name": "GPT-5.6-Luna",
+   "kind": "raw",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 21.6,
+   "ci": 3.2
+  },
+  {
+   "key": "gpt-6-luna@max",
+   "name": "GPT-6-Luna",
+   "kind": "raw",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 21.0,
+   "ci": 3.0
+  },
+  {
+   "key": "gemini-4-argon@high",
+   "name": "Gemini-4-Argon",
+   "kind": "raw",
+   "effort": "high",
+   "company": "Google",
+   "score": 55.4,
+   "ci": 4.2,
+   "extra": true
+  },
+  {
+   "key": "muse-wonder-1.0@max",
+   "name": "Muse Wonder 1.0",
+   "kind": "raw",
+   "effort": "max",
+   "company": "Meta",
+   "score": 43.7,
+   "ci": 4.2,
+   "extra": true
+  },
+  {
+   "key": "claude-code+claude-opus-5@max",
+   "name": "Claude Code + Claude-Opus-5",
+   "kind": "agentic",
+   "effort": "max",
+   "company": "Anthropic",
+   "score": 51.3,
+   "n": 388
+  },
+  {
+   "key": "claude-code+claude-fable-5-1@max",
+   "name": "Claude Code + Claude-Fable-5.1",
+   "kind": "agentic",
+   "effort": "max",
+   "company": "Anthropic",
+   "score": 57.7,
+   "n": 388
+  },
+  {
+   "key": "codex+gpt-6-astra@max",
+   "name": "Codex + GPT-6-Astra",
+   "kind": "agentic",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 59.3,
+   "n": 388
+  },
+  {
+   "key": "codex+gpt-5.6-sol@max",
+   "name": "Codex + GPT-5.6-Sol",
+   "kind": "agentic",
+   "effort": "max",
+   "company": "OpenAI",
+   "score": 35.8,
+   "n": 388
+  },
+  {
+   "key": "gemini-cli+gemini-3.8-flash@high",
+   "name": "Gemini CLI + Gemini-3.8-Flash",
+   "kind": "agentic",
+   "effort": "high",
+   "company": "Google",
+   "score": 21.9,
+   "n": 388
+  },
+  {
+   "key": "muse-code+muse-spark-1.3@xhigh",
+   "name": "Muse Code + Muse Spark 1.3",
+   "kind": "agentic",
+   "effort": "xhigh",
+   "company": "Meta",
+   "score": 47.7,
+   "n": 388
+  }
+ ],
+ "logos": {
+  "OpenAI": "openai-2.svg",
+  "Anthropic": "Claude_AI_symbol.svg.webp",
+  "Google": "gemini-google-icon-symbol-logo-free-png.webp",
+  "Meta": "muse.png",
+  "Zhipu": "Z.ai_(company_logo).svg.webp",
+  "Moonshot": "kimi-ai.webp",
+  "Alibaba": "qwen-ai-logo.webp",
+  "Xiaomi": "mimo-ai.webp",
+  "Human": "human.webp"
+ },
+ "taxonomy": {
+  "Physical & Spatial Logic": {
+   "Spatial Reachability": 27,
+   "Hidden & Invisible": 58,
+   "Affordance & Feasibility": 41,
+   "Spatial \"Alien Viewpoint\"": 50
+  },
+  "Abstract & Contextual Inference": {
+   "Change & Consequence": 70,
+   "Patterns & Pareidolia": 32
+  },
+  "Social Understanding": {
+   "Social Role, Norm & Power Dynamics": 59,
+   "Theory of Mind": 51
+  },
+  "Temporal & Causal Dynamics": {
+   "Extrapolation": 51,
+   "Retrodiction": 50,
+   "Mechanistic Causality": 33
+  }
+ },
+ "featured": [
+  {
+   "id": "6a7f82ad5cfeb63114fa867b",
+   "title": "Wind direction from a striped flag",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a87cdaf533c102bfc5f1ca6",
+   "title": "Turning 90° from another person's viewpoint",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a8507babd79f7aa9aabe2c5",
+   "title": "Would two more books fit?",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a8507babd79f7aa9aabe2ba",
+   "title": "Child on a ride vs. the adult pulling it",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a9e06bce6e80e99fcf1f5e2",
+   "title": "Who is behind a reversing truck",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a9dac4a015bc7455490de54",
+   "title": "Where the traveller with two dogs came from",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a8fb651edeac05965ff3048",
+   "title": "Are the plough chains taking the load?",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6aae2141289b431548341571",
+   "title": "What the waiter thinks is under his foot",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a8c70cefa17feea4693ebaa",
+   "title": "Visitors, or crew preparing the aircraft?",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a8c70cefa17feea4693eb97",
+   "title": "Does the cage spin with the shaft?",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6aa6565295d71e0e44a4d69d",
+   "title": "Whose gaze breaks the pattern",
+   "group": "One failure per subdomain"
+  },
+  {
+   "id": "6a8468042ed73b1b1f6792a3",
+   "title": "Physical misjudgment",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6a9e06bce6e80e99fcf1f77b",
+   "title": "Direction / viewpoint",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6a9dac4a015bc7455490de2d",
+   "title": "Default-outcome bias",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6a89e4598df6268d281ac28c",
+   "title": "Agent loop recovers it",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6a8fb651edeac05965ff2fc8",
+   "title": "Agent loop breaks it",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6aa4b843d42f7899b8cbf26f",
+   "title": "Stereotyped script (social)",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6aacbd8f529680ee93513fd0",
+   "title": "Stereotyped script (social)",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6a8fb651edeac05965ff2f0a",
+   "title": "Stereotyped script (social)",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6aa4b843d42f7899b8cbf276",
+   "title": "Evidence strength (social)",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6a84a95e6d0654f769b19dae",
+   "title": "Wrong referent (physical)",
+   "group": "Failure modes"
+  },
+  {
+   "id": "6aa4b843d42f7899b8cbf2b7",
+   "title": "Evidence strength (temporal)",
+   "group": "Failure modes"
+  }
+ ],
+ "figures": [
+  {
+   "file": "figures/fig0_leaderboard.png",
+   "caption": "Leaderboard"
+  },
+  {
+   "file": "figures/fig1_domain_subdomain_donut.png",
+   "caption": "Taxonomy: 4 domains, 11 subdomains"
+  },
+  {
+   "file": "figures/fig8_data_construction_pipeline.png",
+   "caption": "Construction pipeline"
+  },
+  {
+   "file": "figures/fig4_model_domain_heatmap.png",
+   "caption": "Accuracy by model and domain"
+  },
+  {
+   "file": "figures/fig13_failure_causes.png",
+   "caption": "Failure causes"
+  },
+  {
+   "file": "figures/fig12_effort_by_domain.png",
+   "caption": "Reasoning effort by domain"
+  }
+ ],
+ "paper": "https://arxiv.org/abs/2610.08966",
+ "system_prompt_note": "The main experiment sends no system message (paper, Appendix “Prompts”). The user turn is shown block by block."
+}
